@@ -11218,7 +11218,7 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
         <div class="col s12">
             <p>
                 This page generates a new
-                <select id="currencyDropDownList" onchange="js:setCoin(this.selectedIndex);genwallet();restore_old_selection_index();" class="waves-effect waves-light btn" style="max-width: 20%">
+                <select id="currencyDropDownList" onchange="js:setCoin(this.selectedIndex);genwallet();" class="waves-effect waves-light btn" style="max-width: 20%">
                   <option>Monero</option>
                   <option>Aeon</option>
                   <option>Townforge</option>
@@ -11489,9 +11489,10 @@ keys = null;
 function genwallet(lang)
 {
   if(keys && !confirm('Are you sure? This wallet cannot be recovered once a new wallet is generated.')) {
-    oldSelectionIndex = true;
+    document.getElementById("currencyDropDownList").selectedIndex = _previousSelectionIndex;
     return;
   }
+  _previousSelectionIndex = document.getElementById("currencyDropDownList").selectedIndex;
   spend_key_widget = document.getElementById("spend_key_widget");
   view_key_widget = document.getElementById("view_key_widget");
   address_widget = document.getElementById("address_widget");
@@ -11930,20 +11931,7 @@ function setCoin(index)
   enableElement("show_priv_view_qr_code", enable)
 }
 
-var oldSelectionIndex = false;
-function restore_old_selection_index()
-{
-  if (oldSelectionIndex && document.getElementById("currencyDropDownList").value == "Monero") {
-    document.getElementById("currencyDropDownList").value = "Aeon";
-    setCoin(1);
-    oldSelectionIndex = false;
-  }
-  else if (oldSelectionIndex && document.getElementById("currencyDropDownList").value == "Aeon") {
-    document.getElementById("currencyDropDownList").value = "Monero";
-    setCoin(0);
-    oldSelectionIndex = false;
-  }
-}
+var _previousSelectionIndex = 0;
 
 <!-- allow parameters -->
 var initial = document.getElementById("currencyDropDownList").selectedIndex;
