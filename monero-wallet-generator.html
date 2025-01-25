@@ -11911,6 +11911,9 @@ var cnUtil;
 var current_lang;
 function setCoin(index)
 {
+  var list = document.getElementById("currencyDropDownList");
+  list.value = list[index].value;
+  
   var coinConfig = coinConfigs[index];
   prefix_widget = document.getElementById("prefix_widget");
   cnUtil = cnUtilGen(coinConfig);
