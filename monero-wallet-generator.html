@@ -11948,7 +11948,7 @@ function restore_old_selection_index()
 <!-- allow parameters -->
 var initial = document.getElementById("currencyDropDownList").selectedIndex;
 var params = new URLSearchParams(window.location.search);
-var coin = params.get("coin").toLowerCase();
+var coin = params.get("coin")?.toLowerCase();
 var list = document.getElementById("currencyDropDownList");
 for (var i = 0; i < list.length; ++i)
 {
