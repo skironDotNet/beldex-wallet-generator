@@ -11549,32 +11549,24 @@ function genwallet(lang)
   priv_view_qr_widget.innerHTML = "";
   mnemonic_widget.innerHTML = mnemonic;
 
-  // only monero has the URI scheme
-  if (prefix_widget.value == "4") {
+
     qr=new QRCode(address_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-    qr.makeCode("monero:"+keys.public_addr);
+    qr.makeCode(currentCoinConfig.coinUriPrefix+keys.public_addr);
     qr_priv_mnemonic=new QRCode(priv_mnemonic_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
     qr_priv_mnemonic.makeCode(
-        "monero_wallet:"+keys.public_addr+
+        currentCoinConfig.coinUriPrefix+keys.public_addr+
         "?mnemonic_seed="+encodeURIComponent(mnemonic)+
         "&iso_date="+iso_date);
     qr_priv_spend=new QRCode(priv_spend_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
     qr_priv_spend.makeCode(
-        "monero_wallet:"+keys.public_addr+
+        currentCoinConfig.coinUriPrefix+keys.public_addr+
         "?spend_key="+keys.spend.sec+
         "&iso_date="+iso_date);
     qr_priv_view=new QRCode(priv_view_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
     qr_priv_view.makeCode(
-        "monero_wallet:"+keys.public_addr+
+        currentCoinConfig.coinUriPrefix+keys.public_addr+
         "?view_key="+keys.view.sec+
         "&iso_date="+iso_date);
-  }
-  else {
-    qr = null;
-    qr_priv_mnemonic = null;
-    qr_priv_spend = null;
-    qr_priv_view = null;
-  }
 }
 
 previous_button_text = "";
@@ -11638,24 +11630,6 @@ function genwallet_prefix_worker()
   priv_spend_qr_widget.innerHTML = "";
   priv_view_qr_widget.innerHTML = "";
   mnemonic_widget.innerHTML = mnemonic;
-
-  qr=new QRCode(address_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-  qr.makeCode("monero:"+keys.public_addr);
-  qr_priv_mnemonic=new QRCode(priv_mnemonic_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-  qr_priv_mnemonic.makeCode(
-    "monero_wallet:"+keys.public_addr+
-    "?mnemonic_seed="+encodeURIComponent(mnemonic)+
-    "&iso_date="+iso_date);
-  qr_priv_spend=new QRCode(priv_spend_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-  qr_priv_spend.makeCode(
-    "monero_wallet:"+keys.public_addr+
-    "?spend_key="+keys.spend.sec+
-    "&iso_date="+iso_date);
-  qr_priv_view=new QRCode(priv_view_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-  qr_priv_view.makeCode(
-    "monero_wallet:"+keys.public_addr+
-    "?view_key="+keys.view.sec+
-    "&iso_date="+iso_date);
 }
 
 var zerohex="0000000000000000000000000000000000000000000000000000000000000000";
