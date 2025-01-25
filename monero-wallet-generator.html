@@ -11909,26 +11909,28 @@ function enableLanguage(code, enable)
 
 var cnUtil;
 var current_lang;
+var currentCoinConfig;
+
 function setCoin(index)
 {
   var list = document.getElementById("currencyDropDownList");
   list.value = list[index].value;
-  
-  var coinConfig = coinConfigs[index];
-  prefix_widget = document.getElementById("prefix_widget");
-  cnUtil = cnUtilGen(coinConfig);
-  prefix_widget.value = coinConfig.prefixWidgetValue;
-  current_lang = coinConfig.defaultLang;
 
-  enableLanguage("en", coinConfig.enableLangSelection)
-  enableLanguage("es", coinConfig.enableLangSelection)
-  enableLanguage("pt", coinConfig.enableLangSelection)
-  enableLanguage("jp", coinConfig.enableLangSelection)
-  enableLanguage("eo", coinConfig.enableLangSelection)
-  enableElement("show_qr_code", coinConfig.enableQR)
-  enableElement("show_priv_mnemonic_qr_code", coinConfig.enableQR)
-  enableElement("show_priv_spend_qr_code", coinConfig.enableQR)
-  enableElement("show_priv_view_qr_code", coinConfig.enableQR)
+  currentCoinConfig = coinConfigs[index];
+  prefix_widget = document.getElementById("prefix_widget");
+  cnUtil = cnUtilGen(currentCoinConfig);
+  prefix_widget.value = currentCoinConfig.prefixWidgetValue;
+  current_lang = currentCoinConfig.defaultLang;
+
+  enableLanguage("en", currentCoinConfig.enableLangSelection)
+  enableLanguage("es", currentCoinConfig.enableLangSelection)
+  enableLanguage("pt", currentCoinConfig.enableLangSelection)
+  enableLanguage("jp", currentCoinConfig.enableLangSelection)
+  enableLanguage("eo", currentCoinConfig.enableLangSelection)
+  enableElement("show_qr_code", currentCoinConfig.enableQR)
+  enableElement("show_priv_mnemonic_qr_code", currentCoinConfig.enableQR)
+  enableElement("show_priv_spend_qr_code", currentCoinConfig.enableQR)
+  enableElement("show_priv_view_qr_code", currentCoinConfig.enableQR)
 }
 
 var _previousSelectionIndex = 0;
