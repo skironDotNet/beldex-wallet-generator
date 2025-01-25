@@ -8588,31 +8588,45 @@ return{_strlen:lb,_ge_mul8:Va,_keccak:db,_ge_scalarmult:Ta,_ge_fromfe_frombytes_
 
 
 
+var coinConfigs = [
+    {
+        coinUnitPlaces: 12,
+        coinSymbol: 'XMR',
+        coinName: 'Monero',
+        coinUriPrefix: 'monero:',
+        addressPrefix: 18,
+        addressHeader: '',
+        defaultLang: 'english',
+        prefixWidgetValue: '4',
+        enableLangSelection: true,
+        enableQR: true
+    },
+    {
+        coinUnitPlaces: 12,
+        coinSymbol: 'AEON',
+        coinName: 'Aeon',
+        coinUriPrefix: 'aeon:',
+        addressPrefix: 0xB2,
+        addressHeader: '',
+        defaultLang: 'english',
+        prefixWidgetValue: 'Wm',
+        enableLangSelection: true,
+        enableQR: true
+    },
+    {
+        coinUnitPlaces: 8,
+        coinSymbol: 'None',
+        coinName: 'Townforge',
+        coinUriPrefix: 'townforge:',
+        addressPrefix: 0x78,
+        addressHeader: 'TF1M',
+        defaultLang: 'english',
+        prefixWidgetValue: 'TF1M',
+        enableLangSelection: true,
+        enableQR: true
+    }
+];
 
-var moneroConfig = {
-    coinUnitPlaces: 12,
-    coinSymbol: 'XMR',
-    coinName: 'Monero',
-    coinUriPrefix: 'monero:',
-    addressPrefix: 18,
-    addressHeader: ''
-};
-var aeonConfig = {
-    coinUnitPlaces: 12,
-    coinSymbol: 'AEON',
-    coinName: 'Aeon',
-    coinUriPrefix: 'aeon:',
-    addressPrefix: 0xB2,
-    addressHeader: ''
-};
-var townforgeConfig = {
-    coinUnitPlaces: 8,
-    coinSymbol: 'None',
-    coinName: 'Townforge',
-    coinUriPrefix: 'townforge:',
-    addressPrefix: 0x78,
-    addressHeader: 'TF1M'
-};
 var cnUtilGen = function(initConfig) {
     //var config = $.extend({}, initConfig);
     var config = initConfig;
@@ -11897,38 +11911,21 @@ var cnUtil;
 var current_lang;
 function setCoin(index)
 {
-  var list = document.getElementById("currencyDropDownList");
-  list.value = list[index].value;
-
-  var enable
+  var coinConfig = coinConfigs[index];
   prefix_widget = document.getElementById("prefix_widget");
-  if (index == 0) {
-    cnUtil = cnUtilGen(moneroConfig);
-    prefix_widget.value = "4";
-    enable = true;
-    current_lang = 'english';
-  }
-  else if (index == 1) {
-    cnUtil = cnUtilGen(aeonConfig);
-    prefix_widget.value = "Wm";
-    enable = true;
-    current_lang = 'english';
-  }
-  else if (index == 2) {
-    cnUtil = cnUtilGen(townforgeConfig);
-    prefix_widget.value = "TF1M";
-    enable = true;
-    current_lang = 'english';
-  }
-  enableLanguage("en", enable)
-  enableLanguage("es", enable)
-  enableLanguage("pt", enable)
-  enableLanguage("jp", enable)
-  enableLanguage("eo", enable)
-  enableElement("show_qr_code", enable)
-  enableElement("show_priv_mnemonic_qr_code", enable)
-  enableElement("show_priv_spend_qr_code", enable)
-  enableElement("show_priv_view_qr_code", enable)
+  cnUtil = cnUtilGen(coinConfig);
+  prefix_widget.value = coinConfig.prefixWidgetValue;
+  current_lang = coinConfig.defaultLang;
+
+  enableLanguage("en", coinConfig.enableLangSelection)
+  enableLanguage("es", coinConfig.enableLangSelection)
+  enableLanguage("pt", coinConfig.enableLangSelection)
+  enableLanguage("jp", coinConfig.enableLangSelection)
+  enableLanguage("eo", coinConfig.enableLangSelection)
+  enableElement("show_qr_code", coinConfig.enableQR)
+  enableElement("show_priv_mnemonic_qr_code", coinConfig.enableQR)
+  enableElement("show_priv_spend_qr_code", coinConfig.enableQR)
+  enableElement("show_priv_view_qr_code", coinConfig.enableQR)
 }
 
 var _previousSelectionIndex = 0;
