@@ -11264,7 +11264,7 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
         <div class="col s4 right-align ">
                 <input class="btn orange" type="button" onclick="js:genwallet(null);"
                        value="Generate wallet" id="gen_with_custom_entropy_button" action=""/>
-                <p>Custom entropy for deterministic wallet (leave empty to use the browser's PRNG)</p>
+                <p>Custom entropy for deterministic wallet (leave empty to generate random wallet)</p>
                 <input type="text" value="" id="user_entropy_widget" oninput="js:checkEntropy();" onKeyPress="if (event.keyCode == 13) js:genwallet(null);" />
                 <div style="color: red; display: none" id="user_entropy_warning_widget">WARNING: entropy is way too low for the wallet to be secure: aim for 256 bits (about a hundred dice throws)</div>
         </div>
