@@ -11300,7 +11300,7 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
                       <input type="button" class="waves-effect waves-light btn btn-qr" onclick="js:toggle_address_qr();" value="Show QR code" action=""id="show_qr_code"/>
                     </span>
 
-                    <p class="noprint">This is the address you give to third parties to send monero/beldex/aeon to you.
+                    <p class="noprint">This is the address you give to third parties to send <span id="coinSendName"></span> to you.
                         <br><b>It is the only information here that's meant to be public.</b>
                     </p>
                 </div>
@@ -11922,6 +11922,9 @@ function setCoin(index)
   enableElement("show_priv_mnemonic_qr_code", currentCoinConfig.enableQR)
   enableElement("show_priv_spend_qr_code", currentCoinConfig.enableQR)
   enableElement("show_priv_view_qr_code", currentCoinConfig.enableQR)
+
+  var coinSendName = document.getElementById("coinSendName");
+  coinSendName.textContent = currentCoinConfig.coinSymbol;
 }
 
 var _previousSelectionIndex = 0;
