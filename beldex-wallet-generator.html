@@ -8592,18 +8592,6 @@ return{_strlen:lb,_ge_mul8:Va,_keccak:db,_ge_scalarmult:Ta,_ge_fromfe_frombytes_
 var coinConfigs = [
     {
         coinUnitPlaces: 12,
-        coinSymbol: 'XMR',
-        coinName: 'Monero',
-        coinUriPrefix: 'monero:',
-        addressPrefix: 18,
-        addressHeader: '',
-        defaultLang: 'english',
-        prefixWidgetValue: '4',
-        enableLangSelection: true,
-        enableQR: true
-    },
-    {
-        coinUnitPlaces: 12,
         coinSymbol: 'BDX',
         coinName: 'Beldex',
         coinUriPrefix: 'beldex:',
@@ -8611,6 +8599,18 @@ var coinConfigs = [
         addressHeader: '',
         defaultLang: 'english',
         prefixWidgetValue: 'bx',
+        enableLangSelection: true,
+        enableQR: true
+    },
+    {
+        coinUnitPlaces: 12,
+        coinSymbol: 'XMR',
+        coinName: 'Monero',
+        coinUriPrefix: 'monero:',
+        addressPrefix: 18,
+        addressHeader: '',
+        defaultLang: 'english',
+        prefixWidgetValue: '4',
         enableLangSelection: true,
         enableQR: true
     },
@@ -11246,15 +11246,15 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
             <p>
                 This page generates a new
                 <select id="currencyDropDownList" onchange="js:setCoin(this.selectedIndex);genwallet();" class="waves-effect waves-light btn" style="max-width: 20%">
-                  <option>Monero</option>
                   <option>Beldex</option>
+                  <option>Monero</option>
                   <option>Aeon</option>
                   <option>Townforge</option>
                 </select>
                 wallet. It is self contained and
                 does all the necessary calculations locally, so is suitable for generating a new wallet on a machine
                 that is not connected to the network, and may even never be. This way, you can create
-                a Monero/Beldex/Aeon/Townforge wallet without risking the keys. This file is GPG signed, see <a href="#gpg-instructions">GPG instructions</a>.
+                a Beldex/Monero/Aeon/Townforge wallet without risking the keys. This file is GPG signed, see <a href="#gpg-instructions">GPG instructions</a>.
                 You can check for up to date versions of this page
                 <a href="https://github.com/skironDotNet/beldex-wallet-generator/blob/master/beldex-wallet-generator.html">here</a>.
             </p>
