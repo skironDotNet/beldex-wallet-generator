@@ -11398,7 +11398,7 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
                 <pre>Aeon: WmtXcFZj5iGY21JxAtFsJVQmQQyo7jgoJP8V4zLWVzDeeTfvbP8Mzb5gbNpQEc6BkeUYUqjGntHDSDyA6LKjdGBQ1w9iEpfVw</pre>
                     <br>
 
-                Thanks, and welcome to Beldex/Monero!
+                Thanks, and welcome to <span id="coinWelcomeName"></span>!
                 </p>
 <h5 id="gpg-instructions">How to verify GPG signatures</h5>
 
@@ -11914,6 +11914,9 @@ function setCoin(index)
 
   var coinSendName = document.getElementById("coinSendName");
   coinSendName.textContent = currentCoinConfig.coinSymbol;
+
+  var coinWelcomeName = document.getElementById("coinWelcomeName");
+  coinWelcomeName.textContent = currentCoinConfig.coinName;
 }
 
 var _previousSelectionIndex = 0;
