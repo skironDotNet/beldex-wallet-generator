@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>Monero offline wallet generator</title>
+  <title>Beldex offline wallet generator</title>
   <meta charset="UTF-8">
 
 <!--
@@ -93,6 +93,7 @@
  */
 
 /* Wallet generator modifications: Copyright 2015 moneromooo */
+/* Wallet generator modifications: Copyright 2025 skironDotNet */
 
 -->
     <style type="text/css">
@@ -11255,7 +11256,7 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
                 that is not connected to the network, and may even never be. This way, you can create
                 a Monero/Beldex/Aeon/Townforge wallet without risking the keys. This file is GPG signed, see <a href="#gpg-instructions">GPG instructions</a>.
                 You can check for up to date versions of this page
-                <a href="https://github.com/moneromooo-monero/monero-wallet-generator/blob/master/monero-wallet-generator.html">here</a>.
+                <a href="https://github.com/skironDotNet/beldex-wallet-generator/blob/master/beldex-wallet-generator.html">here</a>.
             </p>
         </div>
     </div>
@@ -11316,7 +11317,8 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
     <div class="row print-only">
         <div class="col l12">
             <p><b>Credits:</b>
-            Made by moneromooo, based on code from <a href="https://mymonero.com/">MyMonero</a>. Copyright notices in the source.
+            Made by moneromooo, based on code from <a href="https://mymonero.com/">MyMonero</a>. Copyright notices in the source.<br>
+            Beldex added by skironDotNet.
             </p>
         </div>
     </div>
@@ -11411,25 +11413,25 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
                 <pre>Townforge: TF1MMDuPzx7CVoCDSjxEHGLQPvdRy5Mjjyg4KG8QY3qkZZVtBobvGkvv4JLbycx1UQrosqEyqZT9ye7zrZR3ucZp6iBp1YaRzLK</pre>
 
                 <br>
-                Thanks, and welcome to Monero!
+                Thanks, and welcome to Beldex/Monero!
                 </p>
 <h5 id="gpg-instructions">How to verify GPG signatures</h5>
 
 <p>
-All released versions of this page will be GPG signed by moneromooo, to avoid trojaned versions
+All released versions of this page will be GPG signed by skironDotNet, to avoid trojaned versions
 being passed around. It is in your interest to check the signature.
 </p>
 <p>
 This page is maintained as a
-<a href="https://github.com/moneromooo-monero/monero-wallet-generator/">git repository</a>.
+<a href="https://github.com/skironDotNet/beldex-wallet-generator/">git repository</a>.
 All commits are signed. In addition, released versions of the page are signed separately.
 In order to check either, you first need to import
-<a href="https://raw.githubusercontent.com/monero-project/bitmonero/master/utils/gpg_keys/moneromooo.asc">moneromooo's GPG key</a>
-from the Monero source tree:
+<a href="https://raw.githubusercontent.com/skironDotNet/gpg-keys/main/skironDotNet-public-key.asc">skironDotNet's GPG key</a>
+from his source tree:
 </p>
 
 <code>
-gpg --import moneromooo.asc
+gpg --import skironDotNet-public-key.asc
 </code>
 
 <h5>Checking a standalone signature</h5>
@@ -11437,12 +11439,12 @@ gpg --import moneromooo.asc
 <p>
 You need to get the signature file corresponding to the version of the page you're using.
 Original signature files are
-<a href="https://raw.githubusercontent.com/moneromooo-monero/monero-wallet-generator/master/monero-wallet-generator.html.asc">in the git repository</a>
-as well. Save it as monero-wallet-generator.html.asc, then:
+<a href="https://raw.githubusercontent.com/skironDotNet/beldex-wallet-generator/main/beldex-wallet-generator.html.asc">in the git repository</a>
+as well. Save it as beldex-wallet-generator.html.asc, then:
 </p>
 
 <code>
-gpg --verify monero-wallet-generator.html.asc
+gpg --verify beldex-wallet-generator.html.asc
 </code>
 
 <p>
@@ -11450,12 +11452,14 @@ You should see a message similar to:
 </p>
 
 <code>
-gpg: Good signature from "moneromooo-monero &lt;moneromooo-monero@users.noreply.github.com&gt;"
+gpg: using RSA key CBF41EAC8C420B6B012C27E781A495DC84BAD59E
+<br>
+gpg: Good signature from "Pawel Cioch &lt;pawel@greenhex.net&gt;"
 </code>
 
 <p>
 Check the signature is from the key you imported previously! If not, you may be checking
-that file was properly signed by an attacker instead of moneromooo. Beware that anyone can
+that file was properly signed by an attacker instead of skironDotNet. Beware that anyone can
 place any email address in a new GPG key, so the right email being shown is no guarantee.
 </p>
 
@@ -11492,12 +11496,12 @@ You should see a message similar to:
 </p>
 
 <code>
-gpg: Good signature from "moneromooo-monero &lt;moneromooo-monero@users.noreply.github.com&gt;"
+gpg: Good signature from "Pawel Cioch &lt;pawel@greenhex.net&gt;"
 </code>
 
 <p>
 Check the signature is from the key you imported previously! If not, you may be checking
-that file was properly signed by an attacker instead of moneromooo. Beware that anyone can
+that file was properly signed by an attacker instead of skironDotNet. Beware that anyone can
 place any email address in a new GPG key, so the right email being shown is no guarantee.
 </p>
 </div>
