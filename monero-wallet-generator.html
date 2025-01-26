@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
 <head>
   <title>Monero offline wallet generator</title>
   <meta charset="UTF-8">
@@ -8588,31 +8588,57 @@ return{_strlen:lb,_ge_mul8:Va,_keccak:db,_ge_scalarmult:Ta,_ge_fromfe_frombytes_
 
 
 
+var coinConfigs = [
+    {
+        coinUnitPlaces: 12,
+        coinSymbol: 'XMR',
+        coinName: 'Monero',
+        coinUriPrefix: 'monero:',
+        addressPrefix: 18,
+        addressHeader: '',
+        defaultLang: 'english',
+        prefixWidgetValue: '4',
+        enableLangSelection: true,
+        enableQR: true
+    },
+    {
+        coinUnitPlaces: 12,
+        coinSymbol: 'BDX',
+        coinName: 'Beldex',
+        coinUriPrefix: 'beldex:',
+        addressPrefix: 0xd1,
+        addressHeader: '',
+        defaultLang: 'english',
+        prefixWidgetValue: 'bx',
+        enableLangSelection: true,
+        enableQR: true
+    },
+    {
+        coinUnitPlaces: 12,
+        coinSymbol: 'AEON',
+        coinName: 'Aeon',
+        coinUriPrefix: 'aeon:',
+        addressPrefix: 0xB2,
+        addressHeader: '',
+        defaultLang: 'english',
+        prefixWidgetValue: 'Wm',
+        enableLangSelection: true,
+        enableQR: true
+    },
+    {
+        coinUnitPlaces: 8,
+        coinSymbol: 'None',
+        coinName: 'Townforge',
+        coinUriPrefix: 'townforge:',
+        addressPrefix: 0x78,
+        addressHeader: 'TF1M',
+        defaultLang: 'english',
+        prefixWidgetValue: 'TF1M',
+        enableLangSelection: true,
+        enableQR: true
+    }
+];
 
-var moneroConfig = {
-    coinUnitPlaces: 12,
-    coinSymbol: 'XMR',
-    coinName: 'Monero',
-    coinUriPrefix: 'monero:',
-    addressPrefix: 18,
-    addressHeader: ''
-};
-var aeonConfig = {
-    coinUnitPlaces: 12,
-    coinSymbol: 'AEON',
-    coinName: 'Aeon',
-    coinUriPrefix: 'aeon:',
-    addressPrefix: 0xB2,
-    addressHeader: ''
-};
-var townforgeConfig = {
-    coinUnitPlaces: 8,
-    coinSymbol: 'None',
-    coinName: 'Townforge',
-    coinUriPrefix: 'townforge:',
-    addressPrefix: 0x78,
-    addressHeader: 'TF1M'
-};
 var cnUtilGen = function(initConfig) {
     //var config = $.extend({}, initConfig);
     var config = initConfig;
@@ -11218,15 +11244,16 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
         <div class="col s12">
             <p>
                 This page generates a new
-                <select id="currencyDropDownList" onchange="js:setCoin(this.selectedIndex);genwallet();restore_old_selection_index();" class="waves-effect waves-light btn" style="max-width: 20%">
+                <select id="currencyDropDownList" onchange="js:setCoin(this.selectedIndex);genwallet();" class="waves-effect waves-light btn" style="max-width: 20%">
                   <option>Monero</option>
+                  <option>Beldex</option>
                   <option>Aeon</option>
                   <option>Townforge</option>
                 </select>
                 wallet. It is self contained and
                 does all the necessary calculations locally, so is suitable for generating a new wallet on a machine
                 that is not connected to the network, and may even never be. This way, you can create
-                a Monero/Aeon/Townforge wallet without risking the keys. This file is GPG signed, see <a href="#gpg-instructions">GPG instructions</a>.
+                a Monero/Beldex/Aeon/Townforge wallet without risking the keys. This file is GPG signed, see <a href="#gpg-instructions">GPG instructions</a>.
                 You can check for up to date versions of this page
                 <a href="https://github.com/moneromooo-monero/monero-wallet-generator/blob/master/monero-wallet-generator.html">here</a>.
             </p>
@@ -11273,7 +11300,7 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
                       <input type="button" class="waves-effect waves-light btn btn-qr" onclick="js:toggle_address_qr();" value="Show QR code" action=""id="show_qr_code"/>
                     </span>
 
-                    <p class="noprint">This is the address you give to third parties to send aeon/monero to you.
+                    <p class="noprint">This is the address you give to third parties to send monero/beldex/aeon to you.
                         <br><b>It is the only information here that's meant to be public.</b>
                     </p>
                 </div>
@@ -11371,9 +11398,13 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
                     <br>
                     Thanks to antanst for the CSS, and to luigi1111 for crypto fixes and improvements.
                     <br>
+                    Thanks to skironDotNet for <a href="https://beldex.io/">Beldex</a> wallet generator and code improvements.
+                    <br>
                     If you found this useful, a donation would be appreciated:
                     <br>
                 <pre>Monero: 4AfUP827TeRZ1cck3tZThgZbRCEwBrpcJTkA1LCiyFVuMH4b5y59bKMZHGb9y58K3gSjWDCBsB4RkGsGDhsmMG5R2qmbLeW</pre>
+                    <br>
+                <pre>Beldex: bxdXeZ2Kwtubt3sxQiqi6JMjEaqiwtSFmSf19LCQZeytBgTjH4nkfrcS7TChRiGZuriiSboqUBvgjFZ6Lfw2LeAp2c9snWTSv</pre>
                     <br>
                 <pre>Aeon: WmtXcFZj5iGY21JxAtFsJVQmQQyo7jgoJP8V4zLWVzDeeTfvbP8Mzb5gbNpQEc6BkeUYUqjGntHDSDyA6LKjdGBQ1w9iEpfVw</pre>
                     <br>
@@ -11489,9 +11520,10 @@ keys = null;
 function genwallet(lang)
 {
   if(keys && !confirm('Are you sure? This wallet cannot be recovered once a new wallet is generated.')) {
-    oldSelectionIndex = true;
+    document.getElementById("currencyDropDownList").selectedIndex = _previousSelectionIndex;
     return;
   }
+  _previousSelectionIndex = document.getElementById("currencyDropDownList").selectedIndex;
   spend_key_widget = document.getElementById("spend_key_widget");
   view_key_widget = document.getElementById("view_key_widget");
   address_widget = document.getElementById("address_widget");
@@ -11534,32 +11566,24 @@ function genwallet(lang)
   priv_view_qr_widget.innerHTML = "";
   mnemonic_widget.innerHTML = mnemonic;
 
-  // only monero has the URI scheme
-  if (prefix_widget.value == "4") {
+
     qr=new QRCode(address_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-    qr.makeCode("monero:"+keys.public_addr);
+    qr.makeCode(currentCoinConfig.coinUriPrefix+keys.public_addr);
     qr_priv_mnemonic=new QRCode(priv_mnemonic_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
     qr_priv_mnemonic.makeCode(
-        "monero_wallet:"+keys.public_addr+
+        currentCoinConfig.coinUriPrefix+keys.public_addr+
         "?mnemonic_seed="+encodeURIComponent(mnemonic)+
         "&iso_date="+iso_date);
     qr_priv_spend=new QRCode(priv_spend_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
     qr_priv_spend.makeCode(
-        "monero_wallet:"+keys.public_addr+
+        currentCoinConfig.coinUriPrefix+keys.public_addr+
         "?spend_key="+keys.spend.sec+
         "&iso_date="+iso_date);
     qr_priv_view=new QRCode(priv_view_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
     qr_priv_view.makeCode(
-        "monero_wallet:"+keys.public_addr+
+        currentCoinConfig.coinUriPrefix+keys.public_addr+
         "?view_key="+keys.view.sec+
         "&iso_date="+iso_date);
-  }
-  else {
-    qr = null;
-    qr_priv_mnemonic = null;
-    qr_priv_spend = null;
-    qr_priv_view = null;
-  }
 }
 
 previous_button_text = "";
@@ -11623,24 +11647,6 @@ function genwallet_prefix_worker()
   priv_spend_qr_widget.innerHTML = "";
   priv_view_qr_widget.innerHTML = "";
   mnemonic_widget.innerHTML = mnemonic;
-
-  qr=new QRCode(address_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-  qr.makeCode("monero:"+keys.public_addr);
-  qr_priv_mnemonic=new QRCode(priv_mnemonic_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-  qr_priv_mnemonic.makeCode(
-    "monero_wallet:"+keys.public_addr+
-    "?mnemonic_seed="+encodeURIComponent(mnemonic)+
-    "&iso_date="+iso_date);
-  qr_priv_spend=new QRCode(priv_spend_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-  qr_priv_spend.makeCode(
-    "monero_wallet:"+keys.public_addr+
-    "?spend_key="+keys.spend.sec+
-    "&iso_date="+iso_date);
-  qr_priv_view=new QRCode(priv_view_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-  qr_priv_view.makeCode(
-    "monero_wallet:"+keys.public_addr+
-    "?view_key="+keys.view.sec+
-    "&iso_date="+iso_date);
 }
 
 var zerohex="0000000000000000000000000000000000000000000000000000000000000000";
@@ -11894,61 +11900,36 @@ function enableLanguage(code, enable)
 
 var cnUtil;
 var current_lang;
+var currentCoinConfig;
+
 function setCoin(index)
 {
   var list = document.getElementById("currencyDropDownList");
   list.value = list[index].value;
 
-  var enable
+  currentCoinConfig = coinConfigs[index];
   prefix_widget = document.getElementById("prefix_widget");
-  if (index == 0) {
-    cnUtil = cnUtilGen(moneroConfig);
-    prefix_widget.value = "4";
-    enable = true;
-    current_lang = 'english';
-  }
-  else if (index == 1) {
-    cnUtil = cnUtilGen(aeonConfig);
-    prefix_widget.value = "Wm";
-    enable = true;
-    current_lang = 'english';
-  }
-  else if (index == 2) {
-    cnUtil = cnUtilGen(townforgeConfig);
-    prefix_widget.value = "TF1M";
-    enable = true;
-    current_lang = 'english';
-  }
-  enableLanguage("en", enable)
-  enableLanguage("es", enable)
-  enableLanguage("pt", enable)
-  enableLanguage("jp", enable)
-  enableLanguage("eo", enable)
-  enableElement("show_qr_code", enable)
-  enableElement("show_priv_mnemonic_qr_code", enable)
-  enableElement("show_priv_spend_qr_code", enable)
-  enableElement("show_priv_view_qr_code", enable)
+  cnUtil = cnUtilGen(currentCoinConfig);
+  prefix_widget.value = currentCoinConfig.prefixWidgetValue;
+  current_lang = currentCoinConfig.defaultLang;
+
+  enableLanguage("en", currentCoinConfig.enableLangSelection)
+  enableLanguage("es", currentCoinConfig.enableLangSelection)
+  enableLanguage("pt", currentCoinConfig.enableLangSelection)
+  enableLanguage("jp", currentCoinConfig.enableLangSelection)
+  enableLanguage("eo", currentCoinConfig.enableLangSelection)
+  enableElement("show_qr_code", currentCoinConfig.enableQR)
+  enableElement("show_priv_mnemonic_qr_code", currentCoinConfig.enableQR)
+  enableElement("show_priv_spend_qr_code", currentCoinConfig.enableQR)
+  enableElement("show_priv_view_qr_code", currentCoinConfig.enableQR)
 }
 
-var oldSelectionIndex = false;
-function restore_old_selection_index()
-{
-  if (oldSelectionIndex && document.getElementById("currencyDropDownList").value == "Monero") {
-    document.getElementById("currencyDropDownList").value = "Aeon";
-    setCoin(1);
-    oldSelectionIndex = false;
-  }
-  else if (oldSelectionIndex && document.getElementById("currencyDropDownList").value == "Aeon") {
-    document.getElementById("currencyDropDownList").value = "Monero";
-    setCoin(0);
-    oldSelectionIndex = false;
-  }
-}
+var _previousSelectionIndex = 0;
 
 <!-- allow parameters -->
 var initial = document.getElementById("currencyDropDownList").selectedIndex;
 var params = new URLSearchParams(window.location.search);
-var coin = params.get("coin").toLowerCase();
+var coin = params.get("coin")?.toLowerCase();
 var list = document.getElementById("currencyDropDownList");
 for (var i = 0; i < list.length; ++i)
 {
