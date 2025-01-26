@@ -8603,6 +8603,18 @@ var coinConfigs = [
     },
     {
         coinUnitPlaces: 12,
+        coinSymbol: 'BDX',
+        coinName: 'Beldex',
+        coinUriPrefix: 'beldex:',
+        addressPrefix: 0xd1,
+        addressHeader: '',
+        defaultLang: 'english',
+        prefixWidgetValue: 'bx',
+        enableLangSelection: true,
+        enableQR: true
+    },
+    {
+        coinUnitPlaces: 12,
         coinSymbol: 'AEON',
         coinName: 'Aeon',
         coinUriPrefix: 'aeon:',
@@ -11234,6 +11246,7 @@ bC0zLjUsMjAuNGgtNkwyNDQuOCwzMTAuNkwyNDQuOCwzMTAuNnoiLz4KPC9nPgo8L3N2Zz4K">
                 This page generates a new
                 <select id="currencyDropDownList" onchange="js:setCoin(this.selectedIndex);genwallet();" class="waves-effect waves-light btn" style="max-width: 20%">
                   <option>Monero</option>
+                  <option>Beldex</option>
                   <option>Aeon</option>
                   <option>Townforge</option>
                 </select>
